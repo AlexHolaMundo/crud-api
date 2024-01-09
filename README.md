@@ -1,8 +1,25 @@
-# React + Vite
+# React + Vite = Crud - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requisitos
 
-Currently, two official plugins are available:
+- Node.js
+- npm
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Clonar el proyecto
+
+```
+git clone https://github.com/xavii07/api-aws.git
+```
+
+## Instalar dependencias
+
+```
+npm install
+```
+
+## Iniciar el proyecto
+
+```
+npm run dev # Inicia el proyecto en modo desarrollo
+npm run build # Genera el proyecto para producción
+```
