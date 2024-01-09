@@ -11,6 +11,7 @@ const FormProducts = ({ setProductos, setProductEdit, productedit }) => {
   };
 
   const [dataproductos, setDataproductos] = useState(initialDataForm);
+  const [existingNames, setExistingNames] = useState([]); // Estado para almacenar nombres existentes
 
   useEffect(() => {
     if (productedit) {
@@ -31,7 +32,7 @@ const FormProducts = ({ setProductos, setProductEdit, productedit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (
       descripcion.trim() === "" ||
       nombre.trim() === "" ||
@@ -39,6 +40,20 @@ const FormProducts = ({ setProductos, setProductEdit, productedit }) => {
       stock === ""
     ) {
       alert("Todos los campos son obligatorios");
+      return;
+    }
+  
+    const numericPrecio = parseFloat(precio);
+    const numericStock = parseFloat(stock);
+  
+    // Validación para campos numéricos (precio y stock)
+    if (numericPrecio < 0 || numericStock < 0) {
+      alert("Los campos de precio y stock no pueden ser menores que 0");
+      return;
+    }
+
+    if (existingNames.includes(nombre)) {
+      alert("Nombre de producto ya existe");
       return;
     }
 
@@ -79,6 +94,8 @@ const FormProducts = ({ setProductos, setProductEdit, productedit }) => {
       alert("No se pudo procesar la solicitud");
     }
   };
+
+  
 
   const handleCancel = () => {
     setProductEdit(null); // Salir del modo de edición
